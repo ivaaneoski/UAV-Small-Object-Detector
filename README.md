@@ -16,7 +16,7 @@
     <img src="https://img.shields.io/badge/Ultralytics-YOLOv8-2C3E50?style=for-the-badge" />
   </a>
 </p>
----
+
 
 ## Results
 
