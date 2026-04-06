@@ -189,7 +189,6 @@ uav-small-object-detector/
 | 04 - Pseudo-Labels | Semi-supervised pipeline | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 ---
 
-Replace `YOUR_LINK_1` through `YOUR_LINK_4` with your shared Colab notebook URLs.
 
 ## Tech Stack
 
