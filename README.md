@@ -12,7 +12,7 @@
   <a href="https://colab.research.google.com/">
     <img src="https://img.shields.io/badge/Google-Colab-3498DB?style=for-the-badge&logo=googlecolab" />
   </a>
-  <a href="[https://www.ultralytics.com/](https://docs.ultralytics.com/datasets/detect/visdrone/)">
+  <a href="https://docs.ultralytics.com/datasets/detect/visdrone/">
     <img src="https://img.shields.io/badge/Ultralytics-YOLOv8-2C3E50?style=for-the-badge" />
   </a>
 </p>
