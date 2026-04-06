@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "mAP50": 0.29373669317784457,
+    "mAP50-95": 0.1662671086264691,
+    "precision": 0.39159907325051424,
+    "recall": 0.30258304542539205
+  },
+  "cbam": {
+    "mAP50": 0.30206881342972747,
+    "mAP50-95": 0.17270067683582924,
+    "precision": 0.414643359389183,
+    "recall": 0.3024832252138724
+  },
+  "pseudo_label": {
+    "mAP50": 0.3072394253534811,
+    "mAP50-95": 0.1755445358297251,
+    "precision": 0.4185700011011811,
+    "recall": 0.3119329290737634,
+    "accepted": 100,
+    "rejected": 0,
+    "acceptance_rate": 100.0,
+    "weights": "/content/drive/MyDrive/UAV_small_obj_detector/runs/detect/pseudo_label_visdrone/weights/best.pt"
+  }
+}

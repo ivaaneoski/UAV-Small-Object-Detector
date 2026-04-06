@@ -1,0 +1,7 @@
+ultralytics
+pytorch-grad-cam
+matplotlib
+opencv-python
+numpy
+torch
+torchvision

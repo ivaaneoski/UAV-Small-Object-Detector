@@ -1,0 +1,6 @@
+.claude/
+__pycache__/
+.ipynb_checkpoints/
+yolov8n.pt
+yolo26n.pt
+clean_notebooks.py
