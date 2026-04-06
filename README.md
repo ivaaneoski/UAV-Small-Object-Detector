@@ -218,13 +218,36 @@ AISKYEYE team from the Lab of Machine Learning and Data Mining, Tianjin Universi
 
 ---
 
-## Quick Start
+## How to Run (Google Colab)
 
-```bash
-git clone https://github.com/YOUR_USERNAME/uav-small-object-detector.git
-cd uav-small-object-detector
-pip install -r requirements.txt
-```
+This project is optimized for **Google Colab** using a **T4 GPU** runtime. Follow these steps to replicate the results:
+
+### 1. Prepare Google Drive
+1. Download this repository as a ZIP or clone it.
+2. Upload the `uav-small-object-detector/` folder to your Google Drive (e.g., in a folder named `DeepLearning/`).
+
+### 2. Configure Colab Runtime
+1. Open any notebook from the `notebooks/` folder in Google Colab.
+2. Go to **Runtime** > **Change runtime type**.
+3. Select **T4 GPU** as the Hardware accelerator.
+
+### 3. Execution Steps
+1. **Mount Drive**: Every notebook starts with a cell to mount your Google Drive.
+   ```python
+   from google.colab import drive
+   drive.mount('/content/drive')
+   ```
+2. **Set Path**: Update the path variable in the first code cell to point to your uploaded folder.
+   ```python
+   import os
+   current_path = '/content/drive/MyDrive/DeepLearning/uav-small-object-detector'
+   os.chdir(current_path)
+   ```
+3. **Run Sequentially**: Execute the notebooks in order (`01` through `04`). The data, weights, and results will automatically save to your Drive folder.
+
+---
+
+## Quick Start (Local)
 
 ---
 
