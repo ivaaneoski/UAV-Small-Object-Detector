@@ -245,12 +245,6 @@ This project is optimized for **Google Colab** using a **T4 GPU** runtime. Follo
    ```
 3. **Run Sequentially**: Execute the notebooks in order (`01` through `04`). The data, weights, and results will automatically save to your Drive folder.
 
----
-
-## Quick Start (Local)
-
----
-
 Then run the notebooks sequentially in Google Colab:
 
 1. `notebooks/01_baseline_yolov8.ipynb`
