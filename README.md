@@ -12,7 +12,7 @@
   <a href="https://colab.research.google.com/">
     <img src="https://img.shields.io/badge/Google-Colab-3498DB?style=for-the-badge&logo=googlecolab" />
   </a>
-  <a href="https://www.ultralytics.com/">
+  <a href="[https://www.ultralytics.com/](https://docs.ultralytics.com/datasets/detect/visdrone/)">
     <img src="https://img.shields.io/badge/Ultralytics-YOLOv8-2C3E50?style=for-the-badge" />
   </a>
 </p>
@@ -183,11 +183,10 @@ uav-small-object-detector/
 
 | Notebook | Description | Open |
 |---|---|---|
-| 01 - Baseline | YOLOv8n training on VisDrone | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_LINK_1) |
-| 02 - CBAM | Attention mechanism integration | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_LINK_2) |
-| 03 - Visualizations | Attention heatmap visualization | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_LINK_3) |
-| 04 - Pseudo-Labels | Semi-supervised pipeline | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_LINK_4) |
-
+| 01 - Baseline | YOLOv8n training on VisDrone | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
+| 02 - CBAM | Attention mechanism integration | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
+| 03 - Visualizations | Attention heatmap visualization | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
+| 04 - Pseudo-Labels | Semi-supervised pipeline | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 ---
 
 Replace `YOUR_LINK_1` through `YOUR_LINK_4` with your shared Colab notebook URLs.
@@ -236,19 +235,6 @@ Then run the notebooks sequentially in Google Colab:
 2. `notebooks/02_cbam_attention.ipynb`
 3. `notebooks/03_gradcam_viz.ipynb`
 4. `notebooks/04_pseudo_labeling.ipynb`
-
----
-
-## Citation
-
-```bibtex
-@misc{uav-small-object-detector-2026,
-  title={UAV Small Object Detector: YOLOv8 + CBAM + Pseudo-Labeling on VisDrone},
-  author={Piyush Kumar Sahu},
-  year={2026},
-  url={https://github.com/YOUR_USERNAME/uav-small-object-detector}
-}
-```
 
 ---
 
