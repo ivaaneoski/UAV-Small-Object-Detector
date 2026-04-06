@@ -2,11 +2,12 @@
 
 > YOLOv8 + CBAM Attention + Attention Heatmaps + Pseudo-Labeling on VisDrone — built for UAV perception research
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-#2C3E50?style=for-the-badge&logo=python)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-#E74C3C?style=for-the-badge&logo=pytorch)](https://pytorch.org/)
-[![Colab](https://img.shields.io/badge/Google-__Colab-#3498DB?style=for-the-badge&logo=googlecolab)](https://colab.research.google.com/)
-[![Ultralytics](https://img.shields.io/badge/Ultralytics-YOLOv8-#2C3E50?style=for-the-badge)](https://www.ultralytics.com/)
-
+<p align="left">
+  <img src="https://img.shields.io/badge/python-3.8+-2C3E50?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/PyTorch-2.0+-E74C3C?style=for-the-badge&logo=pytorch" />
+  <img src="https://img.shields.io/badge/Google-Colab-3498DB?style=for-the-badge&logo=googlecolab" />
+  <img src="https://img.shields.io/badge/Ultralytics-YOLOv8-2C3E50?style=for-the-badge" />
+</p>
 ---
 
 ## Results
