@@ -196,6 +196,7 @@ uav-small-object-detector/
 |   +-- 04_pseudo_labeling.ipynb
 |   +-- 05_yolov11_comparison.ipynb
 |   +-- 06_yolo26_comparison.ipynb
+    +-- metrics_comparision.ipynb
 +-- src/
 |   +-- cbam.py
 |   +-- gradcam_utils.py
