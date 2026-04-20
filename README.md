@@ -63,7 +63,10 @@ The VisDrone dataset features extremely tiny, clustered objects from an aerial p
 
 | Output 1 | Output 2 | Output 3 |
 |---|---|---|
-| ![](results/detection_samples/sample_0.jpg) | ![](results/detection_samples/sample_1.jpg) | ![](results/detection_samples/sample_2.jpg) |
+| <img width="1920" height="1080" alt="sample_1" src="https://github.com/user-attachments/assets/9ef4af1c-3220-4dd8-baf1-db3e03efd1aa" />
+ | <img width="1920" height="1080" alt="sample_4" src="https://github.com/user-attachments/assets/4f5d06e0-b091-424a-8518-bead133f6a2b" />
+ | <img width="1920" height="1080" alt="sample_3" src="https://github.com/user-attachments/assets/219e3034-b6be-42bc-9e20-b4182886210e" />
+ |
 
 ---
 
