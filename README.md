@@ -41,11 +41,15 @@ Key gains:
 
 ![](results/cbam_comparison.png)
 
-### Cross-Architecture Comparison
+### Model Performance Comparison
 
-![](results/model_comparison_bar.png)
+![](results/all_progressions.png)
 
-A comparative analysis was conducted between YOLOv8n, YOLOv11n, and YOLO26n baselines on the VisDrone dataset. 
+### Percentage Improvement Over Baseline
+
+![](results/improvement_over_baseline.png)
+
+### Cross-Architecture Analysis
 
 #### Understanding the Benchmarks
 While YOLO11 and YOLO26 are theoretically more efficient and modern, the results in this project (trained for 20 epochs at 640px) show the YOLOv8n baseline maintaining a lead. This is driven by several technical factors:
