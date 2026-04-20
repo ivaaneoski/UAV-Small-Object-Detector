@@ -86,9 +86,9 @@ The VisDrone dataset features extremely tiny, clustered objects from an aerial p
 </table>
 ---
 
-## Attention Visualizations
+## Attention Visualizations (Grad-CAM)
 
-The visualization stage highlights where the CBAM-enhanced detector focuses in aerial scenes. Warm regions align with vehicles and pedestrians in dense traffic scenes, which provides qualitative evidence that the model is emphasizing relevant small-object regions.
+The visualization stage highlights where the CBAM-enhanced detector focuses in aerial scenes using **Grad-CAM inspired attention heatmaps**. Warm regions align with vehicles and pedestrians in dense traffic scenes, which provides qualitative evidence that the model is emphasizing relevant small-object regions even in cluttered backgrounds.
 
 | Sample 1 | Sample 2 | Sample 3 |
 |---|---|---|
@@ -150,7 +150,7 @@ Attended Feature Map
 
 ### Integration Approach
 
-CBAM is attached to the YOLOv8 backbone with a forward hook, which keeps the integration lightweight and avoids editing Ultralytics internals directly. The attention visualization stage uses hooked backbone activations to generate stable heatmap overlays in Colab.
+CBAM is attached to the YOLOv8 backbone with a forward hook, which keeps the integration lightweight and avoids editing Ultralytics internals directly. The attention visualization stage uses hooked backbone activations to generate stable **Grad-CAM style heatmap overlays** in Colab, demonstrating the effectiveness of the attention layers.
 
 ---
 
@@ -214,6 +214,17 @@ uav-small-object-detector/
 |   +-- pseudo_labels/
 +-- runs/
 |   +-- detect/
+
+---
+
+## 🛰️ Using with Custom UAV Datasets
+
+While optimized for VisDrone, this pipeline is a reusable tool for other UAV challenges like **waterbody surveillance** or **vegetation monitoring**. To use custom data:
+
+1. **Data Prep**: Organize your aerial images and labels in YOLO format (`images/train`, `labels/train`).
+2. **YAML Config**: Create a custom dataset YAML file (e.g., `waterbody.yaml`) defining your target classes (boats, swimmers, etc.).
+3. **Domain Transfer**: Update the `data` parameter in [01_baseline_yolov8.ipynb](file:///d:/Project/UAV-Small-Object-Detector/notebooks/01_baseline_yolov8.ipynb) to point to your custom YAML.
+4. **Pseudo-Label Expansion**: Drop unlabeled domain footage into the `/content/unlabeled` folder and run [04_pseudo_labeling.ipynb](file:///d:/Project/UAV-Small-Object-Detector/notebooks/04_pseudo_labeling.ipynb) to automatically expand your dataset without manual annotation.
 ```
 
 ---
