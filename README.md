@@ -52,7 +52,11 @@ Key gains:
 ### Cross-Architecture Analysis
 
 #### Understanding the Benchmarks
-While YOLO11 and YOLO26 are theoretically more efficient and modern, the results in this project (trained for 20 epochs at 640px) show the YOLOv8n baseline maintaining a lead. This is driven by several technical factors:
+
+> [!NOTE]
+> **Compute Constraints:** Due to the resource limits of the Google Colab free tier (T4 GPU), models were trained for a maximum of **20 epochs**. This "short-burst" training, combined with the downscaling of high-resolution aerial imagery to **640px** to manage computational overhead, significantly influences the observed rankings.
+
+While YOLO11 and YOLO26 are theoretically more efficient and modern, the results in this project show the YOLOv8n baseline maintaining a lead. This is driven by several technical factors:
 
 - **Raw Computational Capacity (GFLOPs):** In the "Nano" category, YOLOv8n is actually a "heavier" model (~3.0M params, 8.2 GFLOPs) compared to YOLO11n (2.6M params, 6.5 GFLOPs) and YOLO26n (2.5M params, 5.8 GFLOPs). This extra 26-40% in computational "brute force" allows YOLOv8n to model high-density tiny objects more effectively in short training runs.
 - **Resolution Sensitivity:** VisDrone objects are often just 10-20 pixels wide. When downsampling to `imgsz=640`, the simpler convolutional blocks (`C2f`) in YOLOv8n prove to be more stable than the sophisticated attention-based modules (`PSA`) in newer models, which typically require higher resolutions or longer training to refine their focus.
