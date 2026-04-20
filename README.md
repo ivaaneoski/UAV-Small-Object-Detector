@@ -220,7 +220,7 @@ uav-small-object-detector/
     └── 📁 detect/                     # Training & inference outputs
 
 ```
-## 🛰️ Using with Custom UAV Datasets
+## Using with Custom UAV Datasets
 
 While optimized for VisDrone, this pipeline is a reusable tool for other UAV challenges like **waterbody surveillance** or **vegetation monitoring**. To use custom data:
 
