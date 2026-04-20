@@ -182,42 +182,42 @@ Auto-generate YOLO labels
 In this run, the model accepted all `100/100` pseudo-labeled images.
 
 ---
-
-## Repository Structure
-
 ```
 uav-small-object-detector/
-+-- README.md
-+-- requirements.txt
-+-- notebooks/
-|   +-- 01_baseline_yolov8.ipynb
-|   +-- 02_cbam_attention.ipynb
-|   +-- 03_gradcam_viz.ipynb
-|   +-- 04_pseudo_labeling.ipynb
-|   +-- 05_yolov11_comparison.ipynb
-|   +-- 06_yolo26_comparison.ipynb
-    +-- metrics_comparision.ipynb
-+-- src/
-|   +-- cbam.py
-|   +-- gradcam_utils.py
-|   +-- heatmap_utils.py
-|   +-- pseudo_label.py
-+-- results/
-|   +-- all_progressions.png
-|   +-- cbam_comparison.png
-|   +-- full_progression.png
-|   +-- gradcam_grid.png
-|   +-- improvement_over_baseline.png
-|   +-- metrics.json
-|   +-- model_comparison_bar.png
-|   +-- detection_samples/
-|   +-- gradcam_samples/
-|   +-- pseudo_labels/
-+-- runs/
-|   +-- detect/
-
----
-
+│
+├── 📄 README.md
+├──  requirements.txt
+│
+├── 📁 notebooks/
+│   ├── 01_baseline_yolov8.ipynb        # Baseline YOLOv8 training & evaluation
+│   ├── 02_cbam_attention.ipynb         # YOLOv8 + CBAM attention module
+│   ├── 03_gradcam_viz.ipynb            # Grad-CAM visualizations
+│   ├── 04_pseudo_labeling.ipynb        # Semi-supervised pseudo-labeling
+│   ├── 05_yolov11_comparison.ipynb     # YOLOv11 performance comparison
+│   ├── 06_yolo26_comparison.ipynb      # YOLOv26 performance comparison
+│   └── metrics_comparision.ipynb       # Aggregated metrics & analysis
+│
+├── 📁 src/
+│   ├── cbam.py                         # CBAM attention implementation
+│   ├── gradcam_utils.py                # Grad-CAM utilities
+│   ├── heatmap_utils.py                # Heatmap generation functions
+│   └── pseudo_label.py                 # Pseudo-labeling pipeline
+│
+├── 📁 results/
+│   ├── 📊 all_progressions.png
+│   ├── 📊 cbam_comparison.png
+│   ├── 📊 full_progression.png
+│   ├── 📊 gradcam_grid.png
+│   ├── 📊 improvement_over_baseline.png
+│   ├── 📊 model_comparison_bar.png
+│   ├── 📄 metrics.json
+│   │
+│   ├── 📁 detection_samples/           # Detection output samples
+│   ├── 📁 gradcam_samples/             # Grad-CAM visual outputs
+│   └── 📁 pseudo_labels/               # Generated pseudo labels
+│
+└── 📁 runs/
+    └── 📁 detect/                     # Training & inference outputs
 
 ```
 ## 🛰️ Using with Custom UAV Datasets
