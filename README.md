@@ -218,6 +218,8 @@ uav-small-object-detector/
 
 ---
 
+
+```
 ## 🛰️ Using with Custom UAV Datasets
 
 While optimized for VisDrone, this pipeline is a reusable tool for other UAV challenges like **waterbody surveillance** or **vegetation monitoring**. To use custom data:
@@ -226,8 +228,6 @@ While optimized for VisDrone, this pipeline is a reusable tool for other UAV cha
 2. **YAML Config**: Create a custom dataset YAML file (e.g., `waterbody.yaml`) defining your target classes (boats, swimmers, etc.).
 3. **Domain Transfer**: Update the `data` parameter in [01_baseline_yolov8.ipynb](file:///d:/Project/UAV-Small-Object-Detector/notebooks/01_baseline_yolov8.ipynb) to point to your custom YAML.
 4. **Pseudo-Label Expansion**: Drop unlabeled domain footage into the `/content/unlabeled` folder and run [04_pseudo_labeling.ipynb](file:///d:/Project/UAV-Small-Object-Detector/notebooks/04_pseudo_labeling.ipynb) to automatically expand your dataset without manual annotation.
-```
-
 ---
 
 ## Run in Google Colab
