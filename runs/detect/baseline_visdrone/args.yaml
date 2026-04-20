@@ -10,10 +10,10 @@ imgsz: 640
 save: true
 save_period: -1
 cache: false
-device: cpu
+device: null
 workers: 8
 project: null
-name: baseline_visdrone
+name: baseline_visdrone2
 exist_ok: false
 pretrained: true
 optimizer: auto
@@ -106,4 +106,4 @@ auto_augment: randaugment
 erasing: 0.4
 cfg: null
 tracker: botsort.yaml
-save_dir: /content/drive/MyDrive/UAV_small_obj_detector/runs/detect/baseline_visdrone
+save_dir: /content/drive/MyDrive/UAV_small_obj_detector/runs/detect/baseline_visdrone2

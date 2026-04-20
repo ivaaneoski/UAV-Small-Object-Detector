@@ -25,6 +25,8 @@
 | YOLOv8n Baseline | 0.2937 | 0.1662 | 0.3915 | 0.3025 |
 | YOLOv8n + CBAM Attention | 0.3020 | 0.1727 | 0.4146 | 0.3024 |
 | + Pseudo-Label Expansion | 0.3072 | 0.1755 | 0.4185 | 0.3119 |
+| YOLOv11n Baseline | 0.2652 | 0.1476 | 0.3882 | 0.3012 |
+| YOLO26n Baseline | 0.2494 | 0.1374 | 0.3677 | 0.2910 |
 
 Key gains:
 
@@ -39,6 +41,19 @@ Key gains:
 ### Baseline vs CBAM Performance
 
 ![](results/cbam_comparison.png)
+
+### Cross-Architecture Comparison
+
+![](results/model_comparison_bar.png)
+
+A comparative analysis was conducted between YOLOv8n, YOLOv11n, and YOLO26n baselines on the VisDrone dataset. 
+
+#### Understanding the Benchmarks
+While YOLO11 and YOLO26 are theoretically more efficient and modern, the results in this project (trained for 20 epochs at 640px) show the YOLOv8n baseline maintaining a lead. This is driven by several technical factors:
+
+- **Raw Computational Capacity (GFLOPs):** In the "Nano" category, YOLOv8n is actually a "heavier" model (~3.0M params, 8.2 GFLOPs) compared to YOLO11n (2.6M params, 6.5 GFLOPs) and YOLO26n (2.5M params, 5.8 GFLOPs). This extra 26-40% in computational "brute force" allows YOLOv8n to model high-density tiny objects more effectively in short training runs.
+- **Resolution Sensitivity:** VisDrone objects are often just 10-20 pixels wide. When downsampling to `imgsz=640`, the simpler convolutional blocks (`C2f`) in YOLOv8n prove to be more stable than the sophisticated attention-based modules (`PSA`) in newer models, which typically require higher resolutions or longer training to refine their focus.
+- **Convergence Speed:** Newer architectures are optimized for deep, long-term convergence (100+ epochs). In a 20-epoch "sprint," the more mature and straightforward YOLOv8n architecture reaches a performance plateau faster.
 
 ---
 
@@ -160,16 +175,21 @@ uav-small-object-detector/
 |   +-- 02_cbam_attention.ipynb
 |   +-- 03_gradcam_viz.ipynb
 |   +-- 04_pseudo_labeling.ipynb
+|   +-- 05_yolov11_comparison.ipynb
+|   +-- 06_yolo26_comparison.ipynb
 +-- src/
 |   +-- cbam.py
 |   +-- gradcam_utils.py
 |   +-- heatmap_utils.py
 |   +-- pseudo_label.py
 +-- results/
+|   +-- all_progressions.png
 |   +-- cbam_comparison.png
 |   +-- full_progression.png
 |   +-- gradcam_grid.png
+|   +-- improvement_over_baseline.png
 |   +-- metrics.json
+|   +-- model_comparison_bar.png
 |   +-- detection_samples/
 |   +-- gradcam_samples/
 |   +-- pseudo_labels/
@@ -187,6 +207,8 @@ uav-small-object-detector/
 | 02 - CBAM | Attention mechanism integration | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 | 03 - Visualizations | Attention heatmap visualization | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 | 04 - Pseudo-Labels | Semi-supervised pipeline | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
+| 05 - YOLOv11 | YOLOv11n baseline comparison | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
+| 06 - YOLO26 | YOLO26n baseline comparison | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 ---
 
 
@@ -251,6 +273,8 @@ Then run the notebooks sequentially in Google Colab:
 2. `notebooks/02_cbam_attention.ipynb`
 3. `notebooks/03_gradcam_viz.ipynb`
 4. `notebooks/04_pseudo_labeling.ipynb`
+5. `notebooks/05_yolov11_comparison.ipynb` (Optional)
+6. `notebooks/06_yolo26_comparison.ipynb` (Optional)
 
 ---
 

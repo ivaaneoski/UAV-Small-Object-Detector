@@ -20,5 +20,17 @@
     "rejected": 0,
     "acceptance_rate": 100.0,
     "weights": "/content/drive/MyDrive/UAV_small_obj_detector/runs/detect/pseudo_label_visdrone/weights/best.pt"
+  },
+  "yolov11n_baseline": {
+    "mAP50": 0.2651762490537308,
+    "mAP50-95": 0.14755468472085892,
+    "precision": 0.38817470697606105,
+    "recall": 0.3011898452484491
+  },
+  "yolo26n_baseline": {
+    "mAP50": 0.24941439738801044,
+    "mAP50-95": 0.13737889200958459,
+    "precision": 0.36771093891145196,
+    "recall": 0.29103506090333614
   }
 }
