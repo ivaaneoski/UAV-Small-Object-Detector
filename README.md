@@ -1,6 +1,6 @@
 # UAV Small Object Detector
 
-> YOLOv8 + CBAM Attention + Attention Heatmaps + Pseudo-Labeling on VisDrone — built for UAV perception research
+> YOLOv8 + CBAM Attention + Attention Heatmaps + Pseudo-Labeling on VisDrone + YOLO11 + YOLO26 (for comparing architectures) — built for UAV perception research
 
 <p align="left">
   <a href="https://www.python.org/">
@@ -12,11 +12,10 @@
   <a href="https://colab.research.google.com/">
     <img src="https://img.shields.io/badge/Google-Colab-3498DB?style=for-the-badge&logo=googlecolab" />
   </a>
-  <a href="https://docs.ultralytics.com/datasets/detect/visdrone/">
-    <img src="https://img.shields.io/badge/Ultralytics-YOLOv8-2C3E50?style=for-the-badge" />
+  <a href="https://docs.ultralytics.com/">
+    <img src="https://img.shields.io/badge/Ultralytics-YOLOv8%20%7C%20YOLO11%20%7C%20YOLO26-2C3E50?style=for-the-badge" />
   </a>
 </p>
-
 
 ## Results
 
@@ -61,13 +60,22 @@ While YOLO11 and YOLO26 are theoretically more efficient and modern, the results
 
 The VisDrone dataset features extremely tiny, clustered objects from an aerial perspective. Below are sample model predictions showing bounding boxes on high-density scenes:
 
-| Output 1 | Output 2 | Output 3 |
-|---|---|---|
-| <img width="1920" height="1080" alt="sample_1" src="https://github.com/user-attachments/assets/9ef4af1c-3220-4dd8-baf1-db3e03efd1aa" />
- | <img width="1920" height="1080" alt="sample_4" src="https://github.com/user-attachments/assets/4f5d06e0-b091-424a-8518-bead133f6a2b" />
- | <img width="1920" height="1080" alt="sample_3" src="https://github.com/user-attachments/assets/219e3034-b6be-42bc-9e20-b4182886210e" />
- |
-
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/9ef4af1c-3220-4dd8-baf1-db3e03efd1aa" width="100%"/><br/>
+      <b>Output 1</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/4f5d06e0-b091-424a-8518-bead133f6a2b" width="100%"/><br/>
+      <b>Output 2</b>
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/219e3034-b6be-42bc-9e20-b4182886210e" width="100%"/><br/>
+      <b>Output 3</b>
+    </td>
+  </tr>
+</table>
 ---
 
 ## Attention Visualizations
