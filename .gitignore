@@ -4,3 +4,4 @@ __pycache__/
 yolov8n.pt
 yolo26n.pt
 clean_notebooks.py
+.agent/
