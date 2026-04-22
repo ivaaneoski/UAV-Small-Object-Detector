@@ -5,3 +5,13 @@ yolov8n.pt
 yolo26n.pt
 clean_notebooks.py
 .agent/
+gemini_read.docx
+graphify-out
+CLAUDE.md
+runs/
+*.pt
+datasets/
+data/
+*.zip
+*.tar.gz
+*.rar

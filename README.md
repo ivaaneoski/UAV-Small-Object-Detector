@@ -1,6 +1,6 @@
 # UAV Small Object Detector
 
-> YOLOv8 + CBAM Attention + Attention Heatmaps + Pseudo-Labeling on VisDrone + YOLO11 + YOLO26 (for comparing architectures) — built for UAV perception research
+> YOLOv8 + CBAM Attention + ECA Attention + SVGC + Attention Heatmaps + Pseudo-Labeling on VisDrone + YOLO11 + YOLO26 (for comparing architectures) — built for UAV perception research
 
 <p align="left">
   <a href="https://www.python.org/">
@@ -23,6 +23,8 @@
 |---|---|---|---|---|
 | YOLOv8n Baseline | 0.2937 | 0.1662 | 0.3915 | 0.3025 |
 | YOLOv8n + CBAM Attention | 0.3020 | 0.1727 | 0.4146 | 0.3024 |
+| YOLOv8n + ECA Attention | 0.2773 | 0.1549 | 0.4146 | 0.3024 |
+| YOLOv8n + SVGC | 0.3001 | 0.1676 | 0.4305 | 0.3235 |
 | + Pseudo-Label Expansion | 0.3072 | 0.1755 | 0.4185 | 0.3119 |
 | YOLOv11n Baseline | 0.2652 | 0.1476 | 0.3882 | 0.3012 |
 | YOLO26n Baseline | 0.2494 | 0.1374 | 0.3677 | 0.2910 |
@@ -30,6 +32,7 @@
 Key gains:
 
 - CBAM improved mAP@50 by `+0.0083` over the baseline.
+- SVGC improved mAP@50 by `+0.0064` over the baseline.
 - Pseudo-labeling improved mAP@50 by `+0.0135` over the baseline.
 - The pseudo-label stage improved mAP@50 by `+0.0052` over the CBAM model.
 - Pseudo-label acceptance rate was `100/100` images.
@@ -43,7 +46,19 @@ Key gains:
 
 ### Model Performance Comparison
 
-![](results/all_progressions.png)
+![](results/all_models_comparision.png)
+
+### ECA vs CBAM Performance
+
+![](results/eca_vs_cbam_comparison.png)
+
+### SVGC Comparison
+
+![](results/svgc_comparison.png)
+
+### SVGC Augmentation Samples
+
+![](results/svgc_samples.png)
 
 ### Percentage Improvement Over Baseline
 
@@ -152,6 +167,14 @@ Attended Feature Map
 
 CBAM is attached to the YOLOv8 backbone with a forward hook, which keeps the integration lightweight and avoids editing Ultralytics internals directly. The attention visualization stage uses hooked backbone activations to generate stable **Grad-CAM style heatmap overlays** in Colab, demonstrating the effectiveness of the attention layers.
 
+### ECA Attention Module
+
+ECA (Efficient Channel Attention) is a lightweight alternative to CBAM that focuses solely on channel attention using a 1D convolution without dimensionality reduction. This preserves cross-channel interaction while being more computationally efficient.
+
+### SVGC (Spatially Variant Ghost Convolutions)
+
+SVGC is a novel approach to replace standard convolutions in the YOLOv8 C2f modules with Ghost convolutions that adapt their spatial receptive field dynamically. This helps in capturing multi-scale context for small objects without significant computational overhead.
+
 ---
 
 ## Pseudo-Labeling Pipeline
@@ -182,6 +205,7 @@ Auto-generate YOLO labels
 In this run, the model accepted all `100/100` pseudo-labeled images.
 
 ---
+
 ```
 uav-small-object-detector/
 │
@@ -195,21 +219,29 @@ uav-small-object-detector/
 │   ├── 04_pseudo_labeling.ipynb        # Semi-supervised pseudo-labeling
 │   ├── 05_yolov11_comparison.ipynb     # YOLOv11 performance comparison
 │   ├── 06_yolo26_comparison.ipynb      # YOLOv26 performance comparison
+│   ├── 07_eca_comparison.ipynb         # ECA attention comparison
+│   ├── 08_svgc_augmentation.ipynb      # SVGC augmentation training
 │   └── metrics_comparision.ipynb       # Aggregated metrics & analysis
 │
 ├── 📁 src/
 │   ├── cbam.py                         # CBAM attention implementation
+│   ├── eca.py                          # ECA attention implementation
 │   ├── gradcam_utils.py                # Grad-CAM utilities
 │   ├── heatmap_utils.py                # Heatmap generation functions
-│   └── pseudo_label.py                 # Pseudo-labeling pipeline
+│   ├── pseudo_label.py                 # Pseudo-labeling pipeline
+│   └── svgc.py                         # SVGC augmentation implementation
 │
 ├── 📁 results/
+│   ├── 📊 all_models_comparision.png
 │   ├── 📊 all_progressions.png
 │   ├── 📊 cbam_comparison.png
+│   ├── 📊 eca_vs_cbam_comparison.png
 │   ├── 📊 full_progression.png
 │   ├── 📊 gradcam_grid.png
 │   ├── 📊 improvement_over_baseline.png
 │   ├── 📊 model_comparison_bar.png
+│   ├── 📊 svgc_comparison.png
+│   ├── 📊 svgc_samples.png
 │   ├── 📄 metrics.json
 │   │
 │   ├── 📁 detection_samples/           # Detection output samples
@@ -218,8 +250,8 @@ uav-small-object-detector/
 │
 └── 📁 runs/
     └── 📁 detect/                     # Training & inference outputs
-
 ```
+
 ## Using with Custom UAV Datasets
 
 While optimized for VisDrone, this pipeline is a reusable tool for other UAV challenges like **waterbody surveillance** or **vegetation monitoring**. To use custom data:
@@ -228,6 +260,7 @@ While optimized for VisDrone, this pipeline is a reusable tool for other UAV cha
 2. **YAML Config**: Create a custom dataset YAML file (e.g., `waterbody.yaml`) defining your target classes (boats, swimmers, etc.).
 3. **Domain Transfer**: Update the `data` parameter in [01_baseline_yolov8.ipynb](file:///d:/Project/UAV-Small-Object-Detector/notebooks/01_baseline_yolov8.ipynb) to point to your custom YAML.
 4. **Pseudo-Label Expansion**: Drop unlabeled domain footage into the `/content/unlabeled` folder and run [04_pseudo_labeling.ipynb](file:///d:/Project/UAV-Small-Object-Detector/notebooks/04_pseudo_labeling.ipynb) to automatically expand your dataset without manual annotation.
+
 ---
 
 ## Run in Google Colab
@@ -240,6 +273,8 @@ While optimized for VisDrone, this pipeline is a reusable tool for other UAV cha
 | 04 - Pseudo-Labels | Semi-supervised pipeline | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 | 05 - YOLOv11 | YOLOv11n baseline comparison | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 | 06 - YOLO26 | YOLO26n baseline comparison | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
+| 07 - ECA | ECA attention comparison | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
+| 08 - SVGC | SVGC augmentation training | ![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg) |
 ---
 
 
@@ -306,6 +341,8 @@ Then run the notebooks sequentially in Google Colab:
 4. `notebooks/04_pseudo_labeling.ipynb`
 5. `notebooks/05_yolov11_comparison.ipynb` (Optional)
 6. `notebooks/06_yolo26_comparison.ipynb` (Optional)
+7. `notebooks/07_eca_comparison.ipynb` (Optional)
+8. `notebooks/08_svgc_augmentation.ipynb` (Optional)
 
 ---
 
