@@ -40,6 +40,13 @@ Key gains:
 > Evaluated on the VisDrone2019-DET validation split (548 images).
 > Trained on Google Colab with a T4 GPU. End-to-end runtime is roughly 1.5 to 2 hours including dataset download.
 
+### Observations on Performance Plateau
+
+Despite implementing sophisticated attention mechanisms (CBAM, ECA), pseudo-labeling, and advanced augmentations (SVGC), the mAP@50 improvements have reached a **plateau around 0.30 - 0.31**. This suggests that for the YOLOv8n architecture on the VisDrone dataset, further gains are likely limited by:
+- **Model Capacity:** The Nano-scale backbone may be saturated at this resolution (640px).
+- **Dataset Resolution:** The extremely small scale of VisDrone objects (often < 10px) makes them difficult to resolve without higher input resolutions or heavier backbones.
+- **Training Duration:** Short 20-epoch runs prioritize rapid convergence over fine-grained feature refinement.
+
 ### Baseline vs CBAM Performance
 
 ![](results/cbam_comparison.png)
@@ -58,11 +65,9 @@ Key gains:
 
 ### SVGC Augmentation Samples
 
+The SVGC (Stochastic Value Grayscale Conversion) method dynamically generates pseudo-infrared views. This forces the model to learn structural features instead of relying on color, which is critical for UAV robustness.
+
 ![](results/svgc_samples.png)
-
-### Percentage Improvement Over Baseline
-
-![](results/improvement_over_baseline.png)
 
 ### Cross-Architecture Analysis
 
