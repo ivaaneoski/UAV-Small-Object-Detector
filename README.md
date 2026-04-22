@@ -65,7 +65,7 @@ Despite implementing sophisticated attention mechanisms (CBAM, ECA), pseudo-labe
 
 ### SVGC Augmentation Samples
 
-The SVGC (Stochastic Value Grayscale Conversion) method dynamically generates pseudo-infrared views. This forces the model to learn structural features instead of relying on color, which is critical for UAV robustness.
+The SVGC (Stochastic Visible-to-Grayscale Conversion) method dynamically generates pseudo-infrared views. This forces the model to learn structural features instead of relying on color, which is critical for UAV robustness.
 
 ![](results/svgc_samples.png)
 
@@ -176,9 +176,9 @@ CBAM is attached to the YOLOv8 backbone with a forward hook, which keeps the int
 
 ECA (Efficient Channel Attention) is a lightweight alternative to CBAM that focuses solely on channel attention using a 1D convolution without dimensionality reduction. This preserves cross-channel interaction while being more computationally efficient.
 
-### SVGC (Spatially Variant Ghost Convolutions)
+### SVGC (Stochastic Visible-to-Grayscale Conversion)
 
-SVGC is a novel approach to replace standard convolutions in the YOLOv8 C2f modules with Ghost convolutions that adapt their spatial receptive field dynamically. This helps in capturing multi-scale context for small objects without significant computational overhead.
+SVGC is a dynamic data augmentation technique that converts RGB images into HSV color space, isolates the Value channel, and applies Contrast Limited Adaptive Histogram Equalization (CLAHE). This simulates grayscale or pseudo-infrared imagery during training, forcing the model to rely on structural features rather than color, which drastically improves generalization across different lighting conditions and sensor modalities.
 
 ---
 

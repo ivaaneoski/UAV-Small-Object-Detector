@@ -1,5 +1,5 @@
 """
-SVGC (Stochastic Value Grayscale Conversion) Augmentation for UAV Small Object Detection.
+SVGC (Stochastic Visible-to-Grayscale Conversion) Augmentation for UAV Small Object Detection.
 
 SVGC is a stochastic augmentation technique for cross-modality generalization.
 It equalizes the histogram of the Value channel (from HSV) to simulate
